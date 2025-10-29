@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Monkey Vlog Generator</title>
+  <style>
+    body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg,#0f2027,#203a43,#2c5364); color:white; margin:0; padding:0; text-align:center;}
+    header { background: rgba(255,255,255,0.1); padding:20px; backdrop-filter: blur(10px);}
+    h1 { margin:0; font-size:2em;}
+    section { padding:40px 20px;}
+    input, button { padding:12px; font-size:1em; border-radius:8px; border:none; outline:none;}
+    input { width:60%; max-width:400px; margin-bottom:20px;}
+    button { background-color:#00c896; color:#fff; cursor:pointer; transition:0.3s;}
+    button:hover { background-color:#00a67c;}
+    video { margin-top:20px; border-radius:10px;}
+    footer { padding:15px; background: rgba(255,255,255,0.1);}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🐒 AI Monkey Vlog Generator</h1>
+    <p>Generate AI Vlog videos (Demo)</p>
+  </header>
+  <section>
+    <h2>Enter Scene Prompt</h2>
+    <input type="text" id="promptInput" placeholder="e.g. Monkey vlogging in Karachi wearing shalwar kameez..." />
+    <br />
+    <button onclick="generateVideo()">🎬 Generate Video</button>
+    <div id="outputArea" class="output">
+      <p>👇 Your AI video will appear here...</p>
+    </div>
+  </section>
+  <footer>
+    <p>Made by Karan ❤️ | Free Demo</p>
+  </footer>
+  <script>
+    async function generateVideo() {
+      const prompt = document.getElementById("promptInput").value;
+      const output = document.getElementById("outputArea");
+      if(!prompt.trim()){ output.innerHTML="<p style='color:#ff8080;'>⚠️ Please enter a prompt!</p>"; return;}
+      output.innerHTML = `<p>🚀 Generating AI video for: <em>${prompt}</em></p><p>⏳ Please wait...</p>`;
+      setTimeout(()=>{
+        output.innerHTML+=`<p>✅ Video generated! (Demo preview)</p>
+        <video width="320" height="240" controls autoplay loop>
+          <source src="https://samplelib.com/lib/preview/mp4/sample-5s.mp4" type="video/mp4">
+        </video>`;
+      },3000);
+    }
+  </script>
+</body>
+</html>
